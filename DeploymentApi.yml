@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+  namespace: api-juan
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: juan-api
+  template:
+    metadata:
+      labels:
+        app: juan-api
+    spec:
+      containers:
+        - name: juan-api-container
+          image: isidrocavazos/servicios-cloud-juan:6  # Cambiar imagen DOCKER
+          ports:
+            - containerPort: 5000
